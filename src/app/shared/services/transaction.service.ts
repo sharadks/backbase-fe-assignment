@@ -10,7 +10,7 @@ export class TransactionService {
     constructor(private apiService: ApiService) {
     }
 
-    getTransections(url): Observable<any> {
+    getTransactions(url): Observable<any> {
         return this.apiService.get(url)
             .map((data) => data);
     };

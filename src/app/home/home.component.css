@@ -1,3 +1,13 @@
 .nav-link {
   cursor:pointer;
 }
+
+.btn {
+  background: orange;
+  border-color: orange;
+  width: 40%;
+  height: 100%;
+}
+.warning {
+  color: red;
+}

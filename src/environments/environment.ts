@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
-    api_url: 'https://conduit.productionready.io/api'
+    api_url: '',
+    transactions: 'http://localhost:8000/assets/mocks/transactions.json'
 };
