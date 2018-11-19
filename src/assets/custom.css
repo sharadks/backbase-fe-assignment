@@ -20,7 +20,7 @@ html {
  body {
       background-image:url("../assets/images/background.jpg");
       background-repeat: no-repeat;
-      background-size: 100% 100%;
+      background-size: cover;
   }
   html {
       height: 100%
@@ -29,3 +29,9 @@ html {
   .margin10{
     margin: 10px;
   }
+  .card{border:none;}
+.card-header{background: #0c8397; color:#fff; text-align:center;}
+input.form-control{border:none; box-shadow:none; border-radius:0px; border-bottom:1px #cdcdcd solid; padding-left:0px}
+.form-control:focus{box-shadow:none!important;}
+.btn-primary{padding-left:100px; padding-right:100px;}
+.btn-primary.disabled, .btn-primary:disabled{background:#e77338; border:none!important}
