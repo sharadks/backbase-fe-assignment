@@ -1,17 +1,14 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnChanges, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: "app-root",
+  templateUrl: "./app.component.html"
 })
-export class AppComponent implements  OnInit, OnChanges {
+export class AppComponent implements OnInit, OnChanges {
   currentUser: any;
-  constructor (private router:Router) {
-  }
+  constructor(private router: Router) {}
 
-  ngOnInit() { 
-  }
-  ngOnChanges() {
-  }
+  ngOnInit() {}
+  ngOnChanges() {}
 }

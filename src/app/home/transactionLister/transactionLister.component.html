@@ -1,0 +1,49 @@
+<div class="card">
+                  <div class="card-header">
+                      <img src="../../assets/images/briefcase.png" class="pull-left" style="background-color: blue"/> <span style="text-align: center">Recent Transections</span> 
+
+                    
+                  </div>
+                  <div class="card-body">
+				  <div class="row">
+                      <div class="col-sm-6">
+                        <input class="form-control"
+                          type="text"
+                          name="search"
+                          placeholder="Search by typing..."
+                          [(ngModel)]="name"
+                          (ngModelChange)="searchByName($event)"
+                        />
+                      </div>
+                      <div class="col-sm-6">
+					  <div class="pull-right">
+                        Sort by 
+						
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-light">
+                        <a  (click)="sortTransactions('date')">Date</a>
+						</label>
+						  <label class="btn btn-light">
+                        <a (click)="sortTransactions('beneficiary')">Beneficiary</a>
+						</label>
+						  <label class="btn btn-light">
+                        <a  (click)="sortTransactions('amount')">Amount</a>
+						</label>
+						</div>
+                      </div>
+					  </div>
+                    </div>
+					<div class="result-data">
+                    <div class="row" *ngFor="let transaction of transactions">
+                      <div class="col-sm-2">{{ transaction.transactionDate | date }}</div>
+                      <div class="col-sm-2">
+                        <img src="{{transaction.merchantLogo}}" height="20" width="20" />
+                      </div>
+                      <div class="col-sm-6">
+                        {{ transaction.merchant }} {{ transaction.transactionType }}
+                      </div>
+                      <div class="col-sm-2">${{ transaction.amount }}</div>
+                    </div>
+					</div>
+                  </div>
+                </div>

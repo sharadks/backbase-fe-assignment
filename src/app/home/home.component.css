@@ -1,5 +1,5 @@
 .nav-link {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .btn {
@@ -11,11 +11,4 @@
 .warning {
   color: red;
 }
-.result-data{padding:0px 15px;border-top:2px #cccccc solid;border-right:2px #cccccc solid; margin-top:20px; margin-left:20px; overflow-y:hidden }
-.result-data .row{padding:10px 0px; border-bottom:2px #cccccc solid;border-left:2px #cccccc solid; position:relative;}
-.result-data .row:before{position:absolute; top:-2px; left:-2px; height:90px; width:8px; background:#11a680; content:""}
-.result-data .row:nth-child(1n+1):before{background:#d31473;}
-.result-data .row:nth-child(2n+1):before{background:#14a481;}
-.result-data .row:nth-child(3n+1):before{background:#c21f20;}
-.result-data .row:nth-child(4n+1):before{background:#c69515;}
-.result-data .row:nth-child(5n+1):before{background:#e1582c;}
+

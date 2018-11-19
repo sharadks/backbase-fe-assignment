@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
-    production: false,
-    api_url: '',
-    transactions: 'http://localhost:8000/assets/mocks/transactions.json'
+  production: false,
+  api_url: "",
+  transactions: "http://localhost:8000/assets/mocks/transactions.json"
 };

@@ -6,8 +6,8 @@ import { Subject } from 'rxjs/Subject';
 export class SubjectService {
 
 private transactionSubject = new BehaviorSubject <any>({'transactionDate': new Date(), 'merchant': null, 'amount':null,'merchantLogo':null});      
-        sendTransectionSubject(auth) {
-                this.transactionSubject.next({ value: true });
+        sendTransectionSubject(data) {
+                this.transactionSubject.next({ value: data });
         }
         
         getTransectionSubject(): Observable<any> {

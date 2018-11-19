@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
-import { Errors } from './models';
+import { Errors } from "./models";
 
 @Component({
-  selector: 'list-errors',
-  templateUrl: './list-errors.component.html'
+  selector: "list-errors",
+  templateUrl: "./list-errors.component.html"
 })
 export class ListErrorsComponent {
   formattedErrors: Array<string> = [];
@@ -18,8 +18,9 @@ export class ListErrorsComponent {
         this.formattedErrors.push(`${field} ${errorList.errors[field]}`);
       }
     }
-  };
+  }
 
-  get errorList() { return this.formattedErrors; }
-
+  get errorList() {
+    return this.formattedErrors;
+  }
 }
