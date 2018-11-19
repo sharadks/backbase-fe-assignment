@@ -1,12 +1,12 @@
 <div class="card">
                   <div class="card-header">
-                      <img src="../../assets/images/briefcase.png" class="pull-left" style="background-color: blue"/> <span style="text-align: center">Recent Transections</span> 
+                      <img src="../../assets/images/briefcase.png" class="pull-left" style="background-color: blue"/> <span style="text-align: center">Recent Transactions</span> 
 
                     
                   </div>
                   <div class="card-body">
 				  <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-5">
                         <input class="form-control"
                           type="text"
                           name="search"
@@ -15,12 +15,12 @@
                           (ngModelChange)="searchByName($event)"
                         />
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-7">
 					  <div class="pull-right">
                         Sort by 
 						
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-light">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-light">
                         <a  (click)="sortTransactions('date')">Date</a>
 						</label>
 						  <label class="btn btn-light">

@@ -5,7 +5,7 @@ import { environment } from "../../../environments/environment";
 @Component({
   selector: "transaction-lister",
   templateUrl: "./transactionLister.component.html",
-  styleUrls: ["./transactionLister.component.css"]
+  styleUrls: ["../home.component.css"]
 })
 export class TransactionListerComponent implements OnInit{
   public transactionsBucket = [];
@@ -19,7 +19,6 @@ export class TransactionListerComponent implements OnInit{
     this.getTransactions();
     this.subjectService.getTransectionSubject().subscribe( (res) => {
       this.transactions.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
-      //this.transactionsBucket.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
     });
     
   }

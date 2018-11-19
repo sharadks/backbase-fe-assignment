@@ -7,7 +7,7 @@ import { environment } from "../../../environments/environment";
 @Component({
   selector: 'transaction-page',
   templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
+  styleUrls: ["../home.component.css"]
 })
 
 
