@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { RouterModule } from "@angular/router";
 
-import { ListErrorsComponent } from './list-errors.component';
-import { ShowAuthedDirective } from './show-authed.directive';
+import { ListErrorsComponent } from "./list-errors.component";
+import { ShowAuthedDirective } from "./show-authed.directive";
 
 @NgModule({
   imports: [
@@ -15,10 +15,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     RouterModule
   ],
-  declarations: [
-    ListErrorsComponent,
-    ShowAuthedDirective
-  ],
+  declarations: [ListErrorsComponent, ShowAuthedDirective],
   exports: [
     CommonModule,
     FormsModule,

@@ -4,9 +4,9 @@ import {
   OnInit,
   TemplateRef,
   ViewContainerRef
-} from '@angular/core';
+} from "@angular/core";
 
-@Directive({ selector: '[showAuthed]' })
+@Directive({ selector: "[showAuthed]" })
 export class ShowAuthedDirective implements OnInit {
   constructor(
     private templateRef: TemplateRef<any>,
@@ -15,11 +15,10 @@ export class ShowAuthedDirective implements OnInit {
 
   condition: boolean;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  @Input() set showAuthed(condition: boolean) {
+  @Input()
+  set showAuthed(condition: boolean) {
     this.condition = condition;
   }
-
 }

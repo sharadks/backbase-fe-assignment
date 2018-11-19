@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {TransactionService} from '../shared';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { TransactionService } from "../shared";
 import { environment } from "../../environments/environment";
 
 @Component({
-  selector: 'home-page',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "home-page",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
-
-
 export class HomeComponent implements OnInit {
-
-  From:any='Free Checking $ ';
-  FromAmount:any = 5824;
-  toValue:String = '';
-  FromValue:any;
-  amountValue:any = null;
-  submitCheck:Boolean= true;
+  From: any = "Free Checking $ ";
+  FromAmount: any = 5824;
+  toValue: String = "";
+  FromValue: any;
+  amountValue: any = null;
+  submitCheck: Boolean = true;
   public transactionsBucket = [];
   public transactions = [];
   public selectedType: String = "";
@@ -26,34 +23,34 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private transactionService: TransactionService
   ) {
-    this.FromValue= this.From + this.FromAmount;
+    this.FromValue = this.From + this.FromAmount;
     this.getTransactions();
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   submitForm() {
     this.FromAmount = this.FromAmount - this.amountValue;
-    this.FromValue= this.From + this.FromAmount;
-    this.transactions.push({'transactionDate': new Date(), 'merchant': this.toValue, 'amount':this.amountValue,'merchantLogo':this.transactions[0].merchantLogo})
+    this.FromValue = this.From + this.FromAmount;
+    this.transactions.push({
+      transactionDate: new Date(),
+      merchant: this.toValue,
+      amount: this.amountValue,
+      merchantLogo: this.transactions[0].merchantLogo
+    });
 
-    this.toValue ='';
+    this.toValue = "";
     this.amountValue = null;
-    this.submitCheck= true;
+    this.submitCheck = true;
   }
-  
+
   validate() {
-    if(((this.amountValue<500) && (this.amountValue) ) && (this.toValue)) {
-      this.submitCheck= false;
+    if (this.amountValue < 500 && this.amountValue && this.toValue) {
+      this.submitCheck = false;
     } else {
-      this.submitCheck= true;
+      this.submitCheck = true;
     }
-
   }
-
-
 
   public searchByName(event) {
     this.transactions = this.transactionsBucket.filter(item => {
