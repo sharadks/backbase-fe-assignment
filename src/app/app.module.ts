@@ -10,7 +10,8 @@ import {
   HeaderComponent,
   JwtService,
   SharedModule,
-  TransactionService
+  TransactionService,
+  SubjectService
 } from "./shared";
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
@@ -21,7 +22,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
   declarations: [AppComponent, FooterComponent, HeaderComponent],
   exports: [],
   imports: [BrowserModule, HomeModule, rootRouting, SharedModule],
-  providers: [ApiService, JwtService, TransactionService],
+  providers: [ApiService, JwtService, TransactionService, SubjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
