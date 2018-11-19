@@ -40,9 +40,9 @@
                         <img src="{{transaction.merchantLogo}}" height="20" width="20" />
                       </div>
                       <div class="col-sm-6">
-                        {{ transaction.merchant }} {{ transaction.transactionType }}
+                        <strong>{{ transaction.merchant }}</strong> <br><small>{{ transaction.transactionType }}</small>
                       </div>
-                      <div class="col-sm-2">${{ transaction.amount }}</div>
+                      <div class="col-sm-2"><strong>${{ transaction.amount }}</strong></div>
                     </div>
 					</div>
                   </div>

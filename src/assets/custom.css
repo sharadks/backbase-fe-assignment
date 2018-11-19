@@ -19,9 +19,8 @@ html {
     background-color: #f5f5f5;
   }
  body {
-      background-image:url("../assets/images/background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
+      background:url("../assets/images/background.jpg") no-repeat;     
+	  background-position:fixed;
   }
   html {
       height: 100%
