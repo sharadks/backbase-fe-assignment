@@ -71,48 +71,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <div class="card">
-        <div class="card-header">
-          <img
-            src="../../assets/images/arrows.png"
-            class="pull-left"
-            style="background-color: blue"
-          />
-          <span style="text-align: center">Recent Transections</span>
-
-          <div class="row">
-            <div class="col-sm-4">
-              <input
-                class="form-control"
-                type="text"
-                name="search"
-                placeholder="Search by typing..."
-                [(ngModel)]="name"
-                (ngModelChange)="searchByName($event)"
-              />
-            </div>
-            <div class="col-sm-6">
-              Sort by <button (click)="sortTransactions('date')">Date</button>
-              <button (click)="sortTransactions('beneficiary')">
-                Beneficiary
-              </button>
-              <button (click)="sortTransactions('amount')">Amount</button>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row" *ngFor="let transaction of transactions">
-            <div class="col-sm-2">{{ transaction.transactionDate | date }}</div>
-            <div class="col-sm-2">
-              <img src="{{transaction.merchantLogo}}" height="20" width="20" />
-            </div>
-            <div class="col-sm-6">
-              {{ transaction.merchant }} {{ transaction.transactionType }}
-            </div>
-            <div class="col-sm-2">${{ transaction.amount }}</div>
-          </div>
-        </div>
-      </div>
+      <transaction-lister></transaction-lister>
     </div>
   </div>
 </div>
