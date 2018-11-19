@@ -9,7 +9,8 @@ import {
     FooterComponent,
     HeaderComponent,
     JwtService,
-    SharedModule
+    SharedModule,
+    TransactionService
 } from './shared';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: false});
@@ -30,6 +31,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: fals
     providers: [
         ApiService,
         JwtService,
+        TransactionService
     ],
     bootstrap: [AppComponent]
 })
