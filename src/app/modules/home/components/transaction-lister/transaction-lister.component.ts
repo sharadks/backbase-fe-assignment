@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { TransactionService, SubjectService } from "../../../shared";
 import { environment } from "../../../../../environments/environment";
 
@@ -7,29 +7,22 @@ import { environment } from "../../../../../environments/environment";
   templateUrl: "./transaction-lister.component.html",
   styleUrls: ["./transaction-lister.component.css"]
 })
-export class TransactionListerComponent implements OnInit{
-  public transactionsBucket = [];
-  public transactions = [];
-  public selectedType: String = "";
-  public selectedOrder: String = "";
+export class TransactionListerComponent {
+  transactionsBucketForSearch = [];
+  transactions = [];
+  selectedType: string = "";
+  selectedOrder: string = "";
   constructor(
     private transactionService: TransactionService,
     private subjectService: SubjectService
   ) {
     this.getTransactions();
-    this.subjectService.getTransectionSubject().subscribe( (res) => {
-      this.transactionsBucket.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
-      this.transactions.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
-
-    });
-    
-  }
-
-  ngOnInit(){
+    this.newTransactionSuccess = this.newTransactionSuccess.bind(this);
+    this.subjectService.getTransectionSubject().subscribe(this.newTransactionSuccess);
   }
 
   public searchByName(event) {
-    this.transactions = this.transactionsBucket.filter(item => {
+    this.transactions = this.transactionsBucketForSearch.filter(item => {
       return item.merchant.includes(event);
     });
   }
@@ -92,8 +85,30 @@ export class TransactionListerComponent implements OnInit{
     this.transactionService
       .getTransactions(`${environment.transactions}`)
       .subscribe(transactions => {
-        this.transactions = transactions.data;
-        this.transactionsBucket = this.transactions;
+        this.transactions = transactions.data; 
+        this.transactionsBucketForSearch = transactions.data; 
       });
+  }
+
+  private newTransactionSuccess(item) {
+    if (!item.value) {
+      return;
+    }
+    //putting dummy merchant logo to new transactions
+    const merchantLogo =
+      this.transactions[0] && this.transactions[0].merchantLogo;
+
+    this.transactions.unshift({
+      transactionDate: new Date(),
+      merchant: item.value.merchant,
+      amount: item.value.amount,
+      merchantLogo: merchantLogo
+    });
+    this.transactionsBucketForSearch.unshift({
+      transactionDate: new Date(),
+      merchant: item.value.merchant,
+      amount: item.value.amount,
+      merchantLogo: merchantLogo
+    });
   }
 }
