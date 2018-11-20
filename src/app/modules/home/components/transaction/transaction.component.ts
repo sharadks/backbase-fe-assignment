@@ -17,6 +17,7 @@ export class TransactionComponent {
   FromValue:string;
   amountValue:number = null;
   submitCheck:boolean= true;
+  disableCheck:boolean=false;
     constructor(
         private transactionService: TransactionService,
         private subjectService: SubjectService
@@ -24,7 +25,7 @@ export class TransactionComponent {
         this.FromValue= `${this.From} ${this.FromAmount}`;
                 
       }
-      submitForm() {
+      transfer() {
         const FromAmount: Number = this.FromAmount - this.amountValue;
         this.FromValue= `${this.From} ${this.FromAmount}`;
         //this.transactions.push({'transactionDate': new Date(), 'merchant': this.toValue, 'amount':this.amountValue,'merchantLogo':this.transactions[0].merchantLogo})
@@ -32,6 +33,7 @@ export class TransactionComponent {
         this.toValue ='';
         this.amountValue = null;
         this.submitCheck= true;
+        this.disableCheck=false;
       }
       
       validate() {
@@ -41,5 +43,19 @@ export class TransactionComponent {
           this.submitCheck= true;
         }
     
+      }
+
+      preview(){
+        this.disableCheck=true;
+      }
+
+      cancelPreview(){
+        this.disableCheck=false;
+      }
+
+      reset(){
+        this.toValue ='';
+        this.amountValue = null;
+        this.disableCheck=false;
       }
  }

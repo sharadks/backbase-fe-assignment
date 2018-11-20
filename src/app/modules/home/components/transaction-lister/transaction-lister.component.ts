@@ -11,7 +11,7 @@ export class TransactionListerComponent {
   transactionsBucketForSearch = [];
   transactions = [];
   selectedType: string = "";
-  selectedOrder: string = "asc";
+  selectedOrder: string = "";
   constructor(
     private transactionService: TransactionService,
     private subjectService: SubjectService

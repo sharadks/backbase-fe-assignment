@@ -49,4 +49,3 @@ input.form-control{border:none; box-shadow:none; border-radius:0px; border-botto
 
 .btn-group{border:1px #cdcdcd solid;}
 .btn-group .btn-light{background:#fff; border-left:1px #cdcdcd solid; border-radius:0px;}
-.btn-group .btn-light:first-child()
