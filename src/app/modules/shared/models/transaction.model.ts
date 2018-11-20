@@ -1,5 +1,5 @@
 export interface Transaction {
-  transactionDate: number;
+  transactionDate: Date;
   merchantLogo: string;
   merchant: string;
   transactionType?: string;

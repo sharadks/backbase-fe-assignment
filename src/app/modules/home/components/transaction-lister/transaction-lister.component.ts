@@ -102,7 +102,7 @@ export class TransactionListerComponent {
       this.transactions[0] && this.transactions[0].merchantLogo;
 
     this.transactionsBucketForSearch.unshift({
-      transactionDate: new Date().getMilliseconds(),
+      transactionDate: new Date(),
       merchant: item.value.merchant,
       amount: item.value.amount,
       merchantLogo: merchantLogo
