@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
-import { HomeModule } from "./home/home.module";
+import { HomeModule } from "./modules/home/home.module";
 
 import {
   ApiService,
@@ -12,7 +12,7 @@ import {
   SharedModule,
   TransactionService,
   SubjectService
-} from "./shared";
+} from "./modules/shared";
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
   useHash: false

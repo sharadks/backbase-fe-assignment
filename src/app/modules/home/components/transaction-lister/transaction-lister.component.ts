@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { TransactionService, SubjectService } from "../../shared";
-import { environment } from "../../../environments/environment";
+import { TransactionService, SubjectService } from "../../../shared";
+import { environment } from "../../../../../environments/environment";
 
 @Component({
   selector: "transaction-lister",
-  templateUrl: "./transactionLister.component.html",
-  styleUrls: ["../home.component.css"]
+  templateUrl: "./transaction-lister.component.html",
+  styleUrls: ["./transaction-lister.component.css"]
 })
 export class TransactionListerComponent implements OnInit{
   public transactionsBucket = [];
@@ -18,7 +18,9 @@ export class TransactionListerComponent implements OnInit{
   ) {
     this.getTransactions();
     this.subjectService.getTransectionSubject().subscribe( (res) => {
+      this.transactionsBucket.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
       this.transactions.push({'transactionDate': new Date(), 'merchant': res.value && res.value.merchant, 'amount': res.value && res.value.amount,'merchantLogo':this.transactions[0] && this.transactions[0].merchantLogo})
+
     });
     
   }
