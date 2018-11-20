@@ -19,15 +19,21 @@
 					  <div class="pull-right">
                         Sort by 
 						
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <div class="btn-group btn-group-toggle">
             <label class="btn btn-light">
                         <a  (click)="sortTransactions('date')">Date</a>
+                        <span class="glyphicon glyphicon-arrow-up" *ngIf="selectedOrder=='asc' && selectedType=='date'"></span>
+                        <span class="glyphicon glyphicon-arrow-down" *ngIf="selectedOrder=='desc' && selectedType=='date'"></span>
 						</label>
 						  <label class="btn btn-light">
                         <a (click)="sortTransactions('beneficiary')">Beneficiary</a>
+                        <span class="glyphicon glyphicon-arrow-up" *ngIf="selectedOrder=='asc' && selectedType=='beneficiary'"></span>
+                        <span class="glyphicon glyphicon-arrow-down" *ngIf="selectedOrder=='desc' && selectedType=='beneficiary'"></span>
 						</label>
 						  <label class="btn btn-light">
                         <a  (click)="sortTransactions('amount')">Amount</a>
+                        <span class="glyphicon glyphicon-arrow-up" *ngIf="selectedOrder=='asc' && selectedType=='amount'"></span>
+                        <span class="glyphicon glyphicon-arrow-down" *ngIf="selectedOrder=='desc' && selectedType=='amount'"></span>
 						</label>
 						</div>
                       </div>

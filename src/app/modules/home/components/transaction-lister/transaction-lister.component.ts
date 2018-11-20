@@ -11,7 +11,7 @@ export class TransactionListerComponent implements OnInit{
   public transactionsBucket = [];
   public transactions = [];
   public selectedType: String = "";
-  public selectedOrder: String = "asc";
+  public selectedOrder: String = "";
   constructor(
     private transactionService: TransactionService,
     private subjectService: SubjectService
