@@ -12,7 +12,7 @@ export class TransactionListerComponent {
   transactions = [];
   selectedType: string = "";
   selectedOrder: string = "";
-  name: string = "";
+  searchText: string = "";
   constructor(
     private transactionService: TransactionService,
     private subjectService: SubjectService
@@ -113,6 +113,6 @@ export class TransactionListerComponent {
 
   private resetListFilters() {
     this.selectedOrder = "";
-    this.name = "";
+    this.searchText = "";
   }
 }
