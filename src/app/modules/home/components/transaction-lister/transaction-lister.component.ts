@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { TransactionService, SubjectService } from "../../../shared";
+import { TransactionService, SubjectService, Transaction } from "../../../shared";
 import { environment } from "../../../../../environments/environment";
 
 @Component({
@@ -8,8 +8,8 @@ import { environment } from "../../../../../environments/environment";
   styleUrls: ["./transaction-lister.component.css"]
 })
 export class TransactionListerComponent {
-  transactionsBucketForSearch = [];
-  transactions = [];
+  transactions: Transaction[] = [];
+  transactionsBucketForSearch: Transaction[] = [];
   selectedType: string = "";
   selectedOrder: string = "";
   searchText: string = "";
@@ -102,7 +102,7 @@ export class TransactionListerComponent {
       this.transactions[0] && this.transactions[0].merchantLogo;
 
     this.transactionsBucketForSearch.unshift({
-      transactionDate: new Date(),
+      transactionDate: new Date().getMilliseconds(),
       merchant: item.value.merchant,
       amount: item.value.amount,
       merchantLogo: merchantLogo
