@@ -12,13 +12,16 @@ export class TransactionListerComponent {
   transactions = [];
   selectedType: string = "";
   selectedOrder: string = "";
+  name: string = "";
   constructor(
     private transactionService: TransactionService,
     private subjectService: SubjectService
   ) {
     this.getTransactions();
     this.newTransactionSuccess = this.newTransactionSuccess.bind(this);
-    this.subjectService.getTransectionSubject().subscribe(this.newTransactionSuccess);
+    this.subjectService
+      .getTransectionSubject()
+      .subscribe(this.newTransactionSuccess);
   }
 
   public searchByName(event) {
@@ -85,8 +88,8 @@ export class TransactionListerComponent {
     this.transactionService
       .getTransactions(`${environment.transactions}`)
       .subscribe(transactions => {
-        this.transactions = transactions.data; 
-        this.transactionsBucketForSearch = transactions.data; 
+        this.transactions = transactions.data;
+        this.transactionsBucketForSearch = transactions.data;
       });
   }
 
@@ -98,17 +101,18 @@ export class TransactionListerComponent {
     const merchantLogo =
       this.transactions[0] && this.transactions[0].merchantLogo;
 
-    this.transactions.unshift({
-      transactionDate: new Date(),
-      merchant: item.value.merchant,
-      amount: item.value.amount,
-      merchantLogo: merchantLogo
-    });
     this.transactionsBucketForSearch.unshift({
       transactionDate: new Date(),
       merchant: item.value.merchant,
       amount: item.value.amount,
       merchantLogo: merchantLogo
     });
+    this.transactions = this.transactionsBucketForSearch;
+    this.resetListFilters();
+  }
+
+  private resetListFilters() {
+    this.selectedOrder = "";
+    this.name = "";
   }
 }
